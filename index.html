@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="dimage.css">
+
+<head>
+    <meta charset="utf-8">
+    <title>电子相册</title>
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body id="body">
+    <div class="t border-image-clip-path" id="t">
+        <p>温馨提醒：</p>
+        <p>1.为了你的体验效果更佳，建议用电脑浏览</p>
+        <p>2.因学长没钱买服务器，网页加载较慢，会有卡顿，属于正常现象</p>
+        <p>3.如在使用过程中遇到任何问题请联系我(QQ:1578625920)</p>
+        <input type="button" value="收到" id="inpu">
+    </div>
+    <div class="w xc">
+        <div class="tit">
+            泰科美景
+        </div>
+        <div class="main w conic">
+
+            <div class="pic w ">
+                <div class="zd">
+                    <ul id="u1">
+                        <li><img src="1 (1).jpg" id="a1"></li>
+                    </ul>
+                </div>
+                <div class="yx">
+                    <ul id="u2">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function my(id) {
+            return document.getElementById(id);
+        }
+
+        my("inpu").onclick = function () {
+            my("t").style.display = "none";
+        }
+
+
+
+        for (var i = 1; i < 98; i++) {
+            (function (i) {
+                var ulobj = document.getElementById("u2");
+                var li = document.createElement("li");
+                var img = document.createElement("img");
+                c = "1 (" + i + ").jpg";
+                // console.log(c);
+                img.setAttribute("src", c);
+                ulobj.appendChild(li);
+                li.appendChild(img);
+            })(i);
+        }
+
+        // 这样做是错的
+        // for (var i = 0; i < my("u2").children.length; i++) {
+        //     my("u2").children[i].onclick = function () {
+        //         my("a1").src = i + 1 + ".jpg";
+        //     }
+        // }
+
+        for (var i = 0; i < 98; i++) {
+            (function (i) {
+                var s = my("u2").children[i];
+                my("u2").children[i].onclick = function () {
+                    // console.log(i);
+                    // var conut = 1;
+                    my("a1").src = '1 (' + (i + 1) + ').jpg';
+
+                }
+            })(i);
+        }
+
+
+    </script>
+</body>
+
+</html>
